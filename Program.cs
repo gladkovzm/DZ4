@@ -23,27 +23,27 @@
 // }
 
 
-// Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+//\\ Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
 // 452 -> 11
 // 82 -> 10
 // 9012 -> 12
 
-int Sum(int num)
-{
-    int sum=0;
-    while (num > 0)
-    {
-        sum+=num%10;
-        num/=10;
-    }
-    return sum;
-}
+// int Sum(int num)
+// {
+//     int sum=0;
+//     while (num > 0)
+//     {
+//         sum+=num%10;
+//         num/=10;
+//     }
+//     return sum;
+// }
 
-Console.Clear();
-Console.Write("Напишите число, что бы вывести сумму его чисел: ");
-int A = int.Parse(Console.ReadLine());
-Console.WriteLine($"Сумма чисел = {Sum(A)}");
+// Console.Clear();
+// Console.Write("Напишите число, что бы вывести сумму его чисел: ");
+// int A = int.Parse(Console.ReadLine());
+// Console.WriteLine($"Сумма чисел = {Sum(A)}");
 
   
 
@@ -53,3 +53,22 @@ Console.WriteLine($"Сумма чисел = {Sum(A)}");
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 
 // 6, 1, 33 -> [6, 1, 33]
+
+Console.Clear();
+Console.WriteLine("Введите количество элементов в массиве");
+int num = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите первое число случайно генерируемого диапазона");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите последнее число случайно генерируемого диапазона");
+int max = Convert.ToInt32(Console.ReadLine());
+int [] RandomArray = new int [num];
+for (int i = 0; i < num; i++)
+{
+    RandomArray[i] = new Random().Next(min, max);
+    Console.WriteLine(RandomArray);
+}
+
+
+   // Random rand = new Random();
+// for(int i =0;i<arr.Length;i++)
+//    arr[i] = rand.Next(-100,100);//Заполняем случайными числами диапозоном от -100 до 100
