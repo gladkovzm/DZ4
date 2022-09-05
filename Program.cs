@@ -47,28 +47,22 @@
 
   
 
-
-// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+//\\ Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-
 // 6, 1, 33 -> [6, 1, 33]
 
 Console.Clear();
-Console.WriteLine("Введите количество элементов в массиве");
+Console.WriteLine("Введите количество элементов  массива");
 int num = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите первое число случайно генерируемого диапазона");
+Console.WriteLine("Введите начальное число для случайного диапазона чисел");
 int min = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите последнее число случайно генерируемого диапазона");
+Console.WriteLine("Введите конечное число для случайного диапазона чисел");
 int max = Convert.ToInt32(Console.ReadLine());
-int [] RandomArray = new int [num];
-for (int i = 0; i < num; i++)
+int[] arrayz = new int[num]; 
+Random rand = new Random(); 
+for (int i = 0; i < arrayz.Length; i++)
 {
-    RandomArray[i] = new Random().Next(min, max);
-    Console.WriteLine(RandomArray);
+    arrayz[i] = rand.Next(min, max + 1);
+    Console.Write($"{arrayz[i]}, ");
 }
-
-
-   // Random rand = new Random();
-// for(int i =0;i<arr.Length;i++)
-//    arr[i] = rand.Next(-100,100);//Заполняем случайными числами диапозоном от -100 до 100
