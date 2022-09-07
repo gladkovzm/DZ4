@@ -66,3 +66,4 @@ for (int i = 0; i < arrayz.Length; i++)
     arrayz[i] = rand.Next(min, max + 1);
     Console.Write($"{arrayz[i]}, ");
 }
+1
