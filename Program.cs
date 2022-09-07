@@ -72,20 +72,20 @@
 
 // [345, 897, 568, 234] -> 2
 
-Console.Clear();
-int[] arrayz = new int[3]; 
-Random rand = new Random(); 
-int k = 0;
-for (int i = 0; i < arrayz.Length; i++)
-{
-    arrayz[i] = rand.Next(100, 1000);
-    Console.Write($"{arrayz[i]}, ");
-    if (arrayz[i] % 2 == 0)
-    {
-        k++;                   
-    }
-}
-Console.Write("Количество четных чисел-> " +k );
+// Console.Clear();
+// int[] arrayz = new int[3]; 
+// Random rand = new Random(); 
+// int k = 0;
+// for (int i = 0; i < arrayz.Length; i++)
+// {
+//     arrayz[i] = rand.Next(100, 1000);
+//     Console.Write($"{arrayz[i]}, ");
+//     if (arrayz[i] % 2 == 0)
+//     {
+//         k++;                   
+//     }
+// }
+// Console.Write("Количество четных чисел-> " +k );
 
 
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
@@ -93,6 +93,23 @@ Console.Write("Количество четных чисел-> " +k );
 // [3, 7, 23, 12] -> 19
 
 // [-4, -6, 89, 6] -> 0
+
+Console.Clear();
+Console.WriteLine("Введите количество элементов  массива");
+int num = Convert.ToInt32(Console.ReadLine());
+int[] arrayz = new int[num]; 
+Random rand = new Random(); 
+int sum = 0;
+for (int i = 0; i < arrayz.Length; i++)
+{
+    arrayz[i] = rand.Next(-99, 100);
+    Console.Write($"{arrayz[i]}, ");
+    if (i % 2 != 0)
+    {
+        sum += arrayz[i];                   
+    }
+}
+Console.WriteLine("Сумма нечетных позиций массива-> " +sum );
 
 // Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 
