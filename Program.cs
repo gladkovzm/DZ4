@@ -91,26 +91,52 @@
 // Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 
 // [3, 7, 23, 12] -> 19
-
 // [-4, -6, 89, 6] -> 0
 
+// Console.Clear();
+// Console.WriteLine("Введите количество элементов  массива");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int[] arrayz = new int[num]; 
+// Random rand = new Random(); 
+// int sum = 0;
+// for (int i = 0; i < arrayz.Length; i++)
+// {
+//     arrayz[i] = rand.Next(-99, 100);
+//     Console.Write($"{arrayz[i]}, ");
+//     if (i % 2 != 0)
+//     {
+//         sum += arrayz[i];                   
+//     }
+// }
+// Console.WriteLine("Сумма нечетных позиций массива-> " +sum );
+
+
+//\\ Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+// [3 7 22 2 78] -> 76
+
 Console.Clear();
-Console.WriteLine("Введите количество элементов  массива");
+Console.WriteLine("Введите количество элементов  массива, для нахождения разницы между максимальным и минимальным элементом");
 int num = Convert.ToInt32(Console.ReadLine());
 int[] arrayz = new int[num]; 
 Random rand = new Random(); 
-int sum = 0;
 for (int i = 0; i < arrayz.Length; i++)
 {
     arrayz[i] = rand.Next(-99, 100);
-    Console.Write($"{arrayz[i]}, ");
-    if (i % 2 != 0)
+}
+Console.WriteLine($"[{String.Join(", ", arrayz)}]");
+int min = arrayz[0];
+int max = arrayz[0];
+for (int i = 0; i < arrayz.Length; i++)
+{
+    if (arrayz[i] > max)
     {
-        sum += arrayz[i];                   
+        max = arrayz[i];                
+    }   
+    if (arrayz[i] < min)
+    {
+        min = arrayz[i];
     }
 }
-Console.WriteLine("Сумма нечетных позиций массива-> " +sum );
-
-// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-
-// [3 7 22 2 78] -> 76
+ Console.WriteLine($"Минимальное;  {min}  Максимальное; {max}");
+ Console.WriteLine($"Разница между максимальным и минимальным элементом; {max-min}");
