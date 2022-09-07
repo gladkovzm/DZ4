@@ -52,18 +52,48 @@
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
 
+// Console.Clear();
+// Console.WriteLine("Введите количество элементов  массива");
+// int num = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите начальное число для случайного диапазона чисел");
+// int min = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите конечное число для случайного диапазона чисел");
+// int max = Convert.ToInt32(Console.ReadLine());
+// int[] arrayz = new int[num]; 
+// Random rand = new Random(); 
+// for (int i = 0; i < arrayz.Length; i++)
+// {
+//     arrayz[i] = rand.Next(min, max + 1);
+//     Console.Write($"{arrayz[i]}, ");
+// }
+
+
+//\\ Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+
+// [345, 897, 568, 234] -> 2
+
 Console.Clear();
-Console.WriteLine("Введите количество элементов  массива");
-int num = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите начальное число для случайного диапазона чисел");
-int min = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите конечное число для случайного диапазона чисел");
-int max = Convert.ToInt32(Console.ReadLine());
-int[] arrayz = new int[num]; 
+int[] arrayz = new int[3]; 
 Random rand = new Random(); 
+int k = 0;
 for (int i = 0; i < arrayz.Length; i++)
 {
-    arrayz[i] = rand.Next(min, max + 1);
+    arrayz[i] = rand.Next(100, 1000);
     Console.Write($"{arrayz[i]}, ");
+    if (arrayz[i] % 2 == 0)
+    {
+        k++;                   
+    }
 }
-1
+Console.Write("Количество четных чисел-> " +k );
+
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+// [3, 7, 23, 12] -> 19
+
+// [-4, -6, 89, 6] -> 0
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+// [3 7 22 2 78] -> 76
