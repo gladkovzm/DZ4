@@ -115,28 +115,55 @@
 
 // [3 7 22 2 78] -> 76
 
+// Console.Clear();
+// Console.WriteLine("Введите количество элементов  массива, для нахождения разницы между максимальным и минимальным элементом");
+// int num = Convert.ToInt32(Console.ReadLine());
+// int[] arrayz = new int[num]; 
+// Random rand = new Random(); 
+// for (int i = 0; i < arrayz.Length; i++)
+// {
+//     arrayz[i] = rand.Next(-99, 100);
+// }
+// Console.WriteLine($"[{String.Join(", ", arrayz)}]");
+// int min = arrayz[0];
+// int max = arrayz[0];
+// for (int i = 0; i < arrayz.Length; i++)
+// {
+//     if (arrayz[i] > max)
+//     {
+//         max = arrayz[i];                
+//     }   
+//     if (arrayz[i] < min)
+//     {
+//         min = arrayz[i];
+//     }
+// }
+//  Console.WriteLine($"Минимальное;  {min}  Максимальное; {max}");
+//  Console.WriteLine($"Разница между максимальным и минимальным элементом; {max-min}");
+
+
+
+//\\ Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
+
 Console.Clear();
-Console.WriteLine("Введите количество элементов  массива, для нахождения разницы между максимальным и минимальным элементом");
-int num = Convert.ToInt32(Console.ReadLine());
-int[] arrayz = new int[num]; 
-Random rand = new Random(); 
+Console.Write("Введите элементы через пробел, чтобы узнать количество положительных чисел: ");
+int[] arrayz = Array.ConvertAll(Console.ReadLine()!.Split(), int.Parse);
+int count = 0;
 for (int i = 0; i < arrayz.Length; i++)
 {
-    arrayz[i] = rand.Next(-99, 100);
-}
-Console.WriteLine($"[{String.Join(", ", arrayz)}]");
-int min = arrayz[0];
-int max = arrayz[0];
-for (int i = 0; i < arrayz.Length; i++)
-{
-    if (arrayz[i] > max)
+    if (arrayz[i] > 0)
     {
-        max = arrayz[i];                
-    }   
-    if (arrayz[i] < min)
-    {
-        min = arrayz[i];
+        count++;
     }
-}
- Console.WriteLine($"Минимальное;  {min}  Максимальное; {max}");
- Console.WriteLine($"Разница между максимальным и минимальным элементом; {max-min}");
+} 
+Console.WriteLine($"Количество положительный элементов: {count}");
+    
+
+
+
+
+
+//\\ Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
