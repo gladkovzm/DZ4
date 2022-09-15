@@ -167,28 +167,119 @@
 //\\ Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
-Console.Clear();
-Console.WriteLine("Введите значения для заданных уравнений y = k1 * x + b1, y = k2 * x + b2 для нахождения пересечения двух прямых");
-Console.Write("Введите k1: ");
-var k1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите b1: ");
-var b1 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите k2: ");
-var k2 = Convert.ToDouble(Console.ReadLine());
-Console.Write("Введите b2: ");
-var b2 = Convert.ToDouble(Console.ReadLine()); 
-if (k1 == k2 && b1 == b2)
+// Console.Clear();
+// Console.WriteLine("Введите значения для заданных уравнений y = k1 * x + b1, y = k2 * x + b2 для нахождения пересечения двух прямых");
+// Console.Write("Введите k1: ");
+// var k1 = Convert.ToDouble(Console.ReadLine());
+// Console.Write("Введите b1: ");
+// var b1 = Convert.ToDouble(Console.ReadLine());
+// Console.Write("Введите k2: ");
+// var k2 = Convert.ToDouble(Console.ReadLine());
+// Console.Write("Введите b2: ");
+// var b2 = Convert.ToDouble(Console.ReadLine()); 
+// if (k1 == k2 && b1 == b2)
+// {
+//     Console.WriteLine("Совпадение прямых");
+// }
+// else if (k1 == k2)
+// {
+//     Console.WriteLine("Нет точек пересечений ");
+// }
+// else 
+// {
+//     var x = (b2 - b1) / (k1 - k2);
+//     var y = k1 * x + b1;
+//     Console.WriteLine($"Пересечение в точке: ({x:f2}; {y:f2})");
+// }
+
+
+/////////////// DZ6
+
+// Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
+
+
+// Console.Clear();
+// System.Console.WriteLine("Введите количество строк: ");
+// int str = int.Parse(Console.ReadLine() ?? "0");
+// System.Console.WriteLine("Введите количество столбцов: ");
+// int col = int.Parse(Console.ReadLine() ?? "0");
+// double[,] matrix = new double[str, col];
+// NewRandomMatrix(matrix);
+
+void NewRandomMatrix (double[,] matrix)
 {
-    Console.WriteLine("Совпадение прямых");
-}
-else if (k1 == k2)
-{
-    Console.WriteLine("Нет точек пересечений ");
-}
-else 
-{
-    var x = (b2 - b1) / (k1 - k2);
-    var y = k1 * x + b1;
-    Console.WriteLine($"Пересечение в точке: ({x:f2}; {y:f2})");
+    Random rand = new Random();
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = rand.NextDouble() * 200 - 100;
+            Console.Write("{0,9:F1}", matrix[i, j]);
+        }
+        Console.WriteLine();
+    }
 }
 
+
+
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 17 -> такого числа в массиве нет
+
+// Console.Clear();
+// double[,] matrix = new double[5, 5];
+// NewRandomMatrix(matrix);
+// Console.Write("Введите строку массива: ");
+// int str = int.Parse(Console.ReadLine() ?? "0");
+// Console.Write("Введите столбец массива: ");
+// int col = int.Parse(Console.ReadLine() ?? "0");
+// if (str<=matrix.GetLength(0) && col<=matrix.GetLength(1))
+// {
+//     Console.WriteLine($"Значение элемента: {matrix[str-1,col-1]:f1}");
+// }
+// else
+// {
+//     Console.WriteLine("Нет такого элемента! ");
+// }
+
+
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+Console.Clear();
+int[,] matrix = new int[5,5];
+Random rand = new Random();
+double num = 0;
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        matrix[i,j] = rand.Next(1, 9);
+        Console.Write($"{matrix[i, j]}\t");
+    }
+    Console.WriteLine();
+    num++;
+}
+Console.Write("Среднее арифметическое каждого столбца: ");
+int sum = 0;
+for (int j = 0; j < matrix.GetLength(1); j++)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        sum=sum+matrix[i,j];
+    }
+    Console.Write("{0,9:F1};", sum/num );
+    sum = 0;
+}
