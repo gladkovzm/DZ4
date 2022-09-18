@@ -344,33 +344,91 @@
 
 //\\ Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
+// Console.Clear();
+// int[,] array = new int[4, 4];
+// CreateArray(array);
+// WriteArray(array);
+// int minsum = 0;
+// int sum = SumElements(array, 0);
+// for (int i = 1; i < array.GetLength(0); i++)
+// {
+//   int tempsum = SumElements(array, i);
+//   if (sum > tempsum)
+//   {
+//     sum = tempsum;
+//     minsum = i;
+//   }
+// }
+
+// Console.WriteLine($"\n{minsum+1} - строкa с наименьшей суммой элементов = {sum} ");
+
+
+// int SumElements(int[,] array, int i)
+// {
+//   int sum = array[i,0];
+//   for (int j = 1; j < array.GetLength(1); j++)
+//   {
+//     sum += array[i,j];
+//   }
+//   return sum;
+// }
+
+// void CreateArray(int[,] array)
+// {
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       array[i, j] = new Random().Next(1, 10);
+//     }
+//   }
+// }
+
+// void WriteArray (int[,] array)
+// {
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       Console.Write(array[i,j] + " ");
+//     }
+//     Console.WriteLine();
+//   }
+// }
+
+
+//\\ Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+
 Console.Clear();
-int[,] array = new int[4, 4];
-CreateArray(array);
-WriteArray(array);
-int minsum = 0;
-int sum = SumElements(array, 0);
-for (int i = 1; i < array.GetLength(0); i++)
+int[,] firstMartrix = new int[2, 2];
+CreateArray(firstMartrix);
+Console.WriteLine($"Первая матрица:");
+WriteArray(firstMartrix);
+
+int[,] secondMartrix = new int[2, 2];
+CreateArray(secondMartrix);
+Console.WriteLine($"Вторая матрица:");
+WriteArray(secondMartrix);
+
+int[,] resultMatrix = new int[2,2];
+MultiplyMatrix(firstMartrix, secondMartrix, resultMatrix);
+Console.WriteLine($"Произведение матриц:");
+WriteArray(resultMatrix);
+
+void MultiplyMatrix(int[,] firstMartrix, int[,] secondMartrix, int[,] resultMatrix)
 {
-  int tempsum = SumElements(array, i);
-  if (sum > tempsum)
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
   {
-    sum = tempsum;
-    minsum = i;
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    {
+      int sum = 0;
+      for (int k = 0; k < firstMartrix.GetLength(1); k++)
+      {
+        sum += firstMartrix[i,k] * secondMartrix[k,j];
+      }
+      resultMatrix[i,j] = sum;
+    }
   }
-}
-
-Console.WriteLine($"\n{minsum+1} - строкa с наименьшей суммой элементов = {sum} ");
-
-
-int SumElements(int[,] array, int i)
-{
-  int sum = array[i,0];
-  for (int j = 1; j < array.GetLength(1); j++)
-  {
-    sum += array[i,j];
-  }
-  return sum;
 }
 
 void CreateArray(int[,] array)
@@ -395,13 +453,6 @@ void WriteArray (int[,] array)
     Console.WriteLine();
   }
 }
-//\\ Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// Например, даны 2 матрицы:
-// 2 4 | 3 4
-// 3 2 | 3 3
-// Результирующая матрица будет:
-// 18 20
-// 15 18
 
 //\\ Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
