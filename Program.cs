@@ -170,13 +170,13 @@
 // Console.Clear();
 // Console.WriteLine("Введите значения для заданных уравнений y = k1 * x + b1, y = k2 * x + b2 для нахождения пересечения двух прямых");
 // Console.Write("Введите k1: ");
-// var k1 = Convert.ToDouble(Console.ReadLine());
+// int k1 = Convert.ToDouble(Console.ReadLine());
 // Console.Write("Введите b1: ");
-// var b1 = Convert.ToDouble(Console.ReadLine());
+// int b1 = Convert.ToDouble(Console.ReadLine());
 // Console.Write("Введите k2: ");
-// var k2 = Convert.ToDouble(Console.ReadLine());
+// int k2 = Convert.ToDouble(Console.ReadLine());
 // Console.Write("Введите b2: ");
-// var b2 = Convert.ToDouble(Console.ReadLine()); 
+// int b2 = Convert.ToDouble(Console.ReadLine()); 
 // if (k1 == k2 && b1 == b2)
 // {
 //     Console.WriteLine("Совпадение прямых");
@@ -187,8 +187,8 @@
 // }
 // else 
 // {
-//     var x = (b2 - b1) / (k1 - k2);
-//     var y = k1 * x + b1;
+//     int x = (b2 - b1) / (k1 - k2);
+//     int y = k1 * x + b1;
 //     Console.WriteLine($"Пересечение в точке: ({x:f2}; {y:f2})");
 // }
 
@@ -210,19 +210,19 @@
 // double[,] matrix = new double[str, col];
 // NewRandomMatrix(matrix);
 
-void NewRandomMatrix (double[,] matrix)
-{
-    Random rand = new Random();
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = rand.NextDouble() * 200 - 100;
-            Console.Write("{0,9:F1}", matrix[i, j]);
-        }
-        Console.WriteLine();
-    }
-}
+// void NewRandomMatrix (double[,] matrix)
+// {
+//     Random rand = new Random();
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = rand.NextDouble() * 200 - 100;
+//             Console.Write("{0,9:F1}", matrix[i, j]);
+//         }
+//         Console.WriteLine();
+//     }
+// }
 
 
 
@@ -258,28 +258,122 @@ void NewRandomMatrix (double[,] matrix)
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
+// Console.Clear();
+// int[,] matrix = new int[5,5];
+// Random rand = new Random();
+// double num = 0;
+// for (int i = 0; i < matrix.GetLength(0); i++)
+// {
+//     for (int j = 0; j < matrix.GetLength(1); j++)
+//     {
+//         matrix[i,j] = rand.Next(1, 9);
+//         Console.Write($"{matrix[i, j]}\t");
+//     }
+//     Console.WriteLine();
+//     num++;
+// }
+// Console.Write("Среднее арифметическое каждого столбца: ");
+// int sum = 0;
+// for (int j = 0; j < matrix.GetLength(1); j++)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         sum=sum+matrix[i,j];
+//     }
+//     Console.Write("{0,9:F1};", sum/num );
+//     sum = 0;
+// }
+
+
+////////////////////////DZ7
+
+// Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+
 Console.Clear();
-int[,] matrix = new int[5,5];
-Random rand = new Random();
-double num = 0;
-for (int i = 0; i < matrix.GetLength(0); i++)
+Console.WriteLine("Неотсортированный массив: ");
+int[,] array = new int[4, 4];
+CreateArray(array);
+WriteArray(array);
+
+Console.WriteLine("Отсортированный массив: ");
+OrderArrayLines(array);
+WriteArray(array);
+
+void OrderArrayLines(int[,] array)
 {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        matrix[i,j] = rand.Next(1, 9);
-        Console.Write($"{matrix[i, j]}\t");
+      for (int k = 0; k < array.GetLength(1) - 1; k++)
+      {
+        if (array[i, k] < array[i, k + 1])
+        {
+          int temp = array[i, k + 1];
+          array[i, k + 1] = array[i, k];
+          array[i, k] = temp;
+        }
+      }
+    }
+  }
+}
+
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      array[i, j] = new Random().Next(10);
+    }
+  }
+}
+
+void WriteArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i, j] + " ");
     }
     Console.WriteLine();
-    num++;
+  }
 }
-Console.Write("Среднее арифметическое каждого столбца: ");
-int sum = 0;
-for (int j = 0; j < matrix.GetLength(1); j++)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        sum=sum+matrix[i,j];
-    }
-    Console.Write("{0,9:F1};", sum/num );
-    sum = 0;
-}
+
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+// Например, задан массив:
+
+// 1 4 7 2
+
+// 5 9 2 3
+
+// 8 4 2 4
+
+// 5 2 6 7
+
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+// Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
