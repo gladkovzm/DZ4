@@ -520,38 +520,96 @@
 
 //\\ Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 
-Console.Clear();
-Console.WriteLine($"Массив спиральный:");
-int[,] spiralMatrix = new int[4, 4];
-int temp = 1;
-int i = 0;
-int j = 0;
-while (temp <= spiralMatrix.GetLength(0) * spiralMatrix.GetLength(1))
-{
-  spiralMatrix[i, j] = temp;
-  temp++;
-  if (i <= j + 1 && i + j < spiralMatrix.GetLength(1) - 1)
-    j++;
-  else if (i < j && i + j >= spiralMatrix.GetLength(0) - 1)
-    i++;
-  else if (i >= j && i + j > spiralMatrix.GetLength(1) - 1)
-    j--;
-  else
-    i--;
-}
-WriteArray(spiralMatrix);
+// Console.Clear();
+// Console.WriteLine($"Массив спиральный:");
+// int[,] spiralMatrix = new int[4, 4];
+// int temp = 1;
+// int i = 0;
+// int j = 0;
+// while (temp <= spiralMatrix.GetLength(0) * spiralMatrix.GetLength(1))
+// {
+//   spiralMatrix[i, j] = temp;
+//   temp++;
+//   if (i <= j + 1 && i + j < spiralMatrix.GetLength(1) - 1)
+//     j++;
+//   else if (i < j && i + j >= spiralMatrix.GetLength(0) - 1)
+//     i++;
+//   else if (i >= j && i + j > spiralMatrix.GetLength(1) - 1)
+//     j--;
+//   else
+//     i--;
+// }
+// WriteArray(spiralMatrix);
 
-void WriteArray (int[,] array)
-{
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-      if (array[i,j] / 10 <= 0)
-      Console.Write($"0{array[i,j]} ");
+// void WriteArray (int[,] array)
+// {
+//   for (int i = 0; i < array.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//       if (array[i,j] / 10 <= 0)
+//       Console.Write($"0{array[i,j]} ");
 
-      else Console.Write($"{array[i,j]} ");
-    }
-    Console.WriteLine();
-  }
+//       else Console.Write($"{array[i,j]} ");
+//     }
+//     Console.WriteLine();
+//   }
+// }
+
+
+//////////////DZ9
+
+
+//\\ Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+
+
+// Console.Clear();
+// Console.Write("Введите N: ");
+// int n=int.Parse(Console.ReadLine());
+// Console.Write("Введите M: ");
+// int m=int.Parse(Console.ReadLine());
+// Console.WriteLine(Printnumbers(n,m));
+
+// string Printnumbers(int start, int end)
+// {
+//     if (start == end) return start.ToString();
+//     return (start + " " + Printnumbers(start + 1, end));
+// }
+
+
+//\\ Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
+
+// Console.Clear();
+// Console.Write("Введите N: ");
+// int n=int.Parse(Console.ReadLine());
+// Console.Write("Введите M: ");
+// int m=int.Parse(Console.ReadLine());
+// Console.WriteLine(sumTo(n,m));
+
+// int sumTo(int start, int end)
+// {
+//     if(start > end)
+//         return 0;
+//     return start + sumTo(start+1, end);
+// }
+
+//\\ Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+
+// m = 2, n = 3 -> A(m,n) = 29
+
+Console.Write("Введите число m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+ Console.Write("Введите число n: ");
+int n= Convert.ToInt32(Console.ReadLine());
+Console.WriteLine(A(n,m));
+            
+static int A(int n, int m)
+{
+    if (n == 0) return m + 1;
+    if (n != 0 && m == 0) return A(n - 1, 1);
+    if (n > 0 && m > 0) return A(n - 1, A(n, m - 1));
+    return A(n,m);
 }
